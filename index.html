@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>软件资源目录 - 免费工具合集</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        dark: '#1D2939',
+                        light: '#F2F4F7'
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .card-shadow {
+                box-shadow: 0 2px 12px rgba(22, 93, 255, 0.1);
+            }
+            .nav-active {
+                background-color: #165DFF;
+                color: #ffffff;
+            }
+            .scroll-hide::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-dark">
+    <!-- 顶部导航栏 -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <i class="fa fa-cubes text-primary text-2xl"></i>
+                <h1 class="text-xl font-bold text-primary">软件资源目录</h1>
+            </div>
+            <!-- 搜索框 -->
+            <div class="relative w-full md:w-96">
+                <input id="searchInput" type="text" placeholder="搜索软件名称、分类..." 
+                    class="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-200 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary">
+                <i class="fa fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <!-- 分类导航 -->
+        <section class="mb-8 overflow-x-auto scroll-hide">
+            <div id="categoryNav" class="flex gap-2 min-w-max pb-2">
+                <button data-type="all" class="category-btn nav-active px-4 py-2 rounded-lg transition-all">全部软件</button>
+                <button data-type="office" class="category-btn px-4 py-2 rounded-lg bg-white border border-gray-200 hover:bg-gray-100 transition-all">办公工具</button>
+                <button data-type="design" class="category-btn px-4 py-2 rounded-lg bg-white border border-gray-200 hover:bg-gray-100 transition-all">设计绘图</button>
+                <button data-type="media" class="category-btn px-4 py-2 rounded-lg bg-white border border-gray-200 hover:bg-gray-100 transition-all">影音媒体</button>
+                <button data-type="dev" class="category-btn px-4 py-2 rounded-lg bg-white border border-gray-200 hover:bg-gray-100 transition-all">开发编程</button>
+                <button data-type="utility" class="category-btn px-4 py-2 rounded-lg bg-white border border-gray-200 hover:bg-gray-100 transition-all">系统工具</button>
+                <button data-type="game" class="category-btn px-4 py-2 rounded-lg bg-white border border-gray-200 hover:bg-gray-100 transition-all">游戏工具</button>
+            </div>
+        </section>
+
+        <!-- 软件列表卡片容器 -->
+        <div id="softList" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- JS动态渲染卡片 -->
+        </div>
+
+        <!-- 无数据提示 -->
+        <div id="emptyTip" class="hidden py-20 text-center text-gray-400">
+            <i class="fa fa-search text-5xl mb-4"></i>
+            <p class="text-lg">未找到匹配的软件</p>
+        </div>
+
+        <!-- 免责声明 -->
+        <section class="mt-12 bg-white rounded-xl p-6 card-shadow">
+            <div class="flex items-center gap-2 mb-4">
+                <i class="fa fa-exclamation-circle text-yellow-500 text-lg"></i>
+                <h3 class="font-bold text-gray-800">免责声明</h3>
+            </div>
+            <div class="text-gray-500 text-sm leading-relaxed space-y-2">
+                <p>本站所有资源均收集自互联网，分享目的仅供学习参考，并不贩卖资源</p>
+                <p>所有软件的版权归其各自的开发者或发行商所有。</p>
+                <p>请您在下载后24小时内删除。若本站发布的内容侵犯到您的合法权益</p>
+                <p>请立即联系994469639@qq.com及时做删除处理！</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="mt-16 py-6 bg-white border-t border-gray-200">
+        <div class="container mx-auto px-4 text-center text-gray-500 text-sm">
+            <p>静态软件资源目录 © 2026 All Rights Reserved | 纯静态本地网页，无需服务器</p>
+        </div>
+    </footer>
+
+    <script>
+        // 软件数据源
+        const softData = [
+            {
+                id: 1,
+                name: "WPS Office",
+                desc: "办公套件，文字表格PPT一体",
+                category: "office",
+                icon: "fa fa-file-text-o",
+                update: "2026-07-16",
+                link: "tutorials/wps.html"
+            },
+            {
+                id: 2,
+                name: "Photoshop 2026",
+                desc: "专业图像处理、平面设计修图软件",
+                category: "design",
+                icon: "fa fa-picture-o",
+                update: "2026-06-28",
+                link: "tutorials/ps.html"
+            },
+            {
+                id: 3,
+                name: "PotPlayer",
+                desc: "轻量本地视频播放器，支持全格式解码",
+                category: "media",
+                icon: "fa fa-play-circle",
+                size: "32MB",
+                update: "2026-07-01",
+                link: "#download"
+            },
+            {
+                id: 4,
+                name: "VS Code",
+                desc: "轻量级代码编辑器，支持全编程语言",
+                category: "dev",
+                icon: "fa fa-code",
+                size: "128MB",
+                update: "2026-07-12",
+                link: "#download"
+            },
+            {
+                id: 5,
+                name: "CCleaner",
+                desc: "系统垃圾清理、注册表优化工具",
+                category: "utility",
+                icon: "fa fa-trash-o",
+                size: "15MB",
+                update: "2026-06-15",
+                link: "#download"
+            },
+            {
+                id: 6,
+                name: "WPS Office",
+                desc: "全平台免费办公套件，文字表格PPT一体",
+                category: "office",
+                icon: "fa fa-file-text-o",
+                size: "186MB",
+                update: "2026-07-10",
+                link: "tutorials/wps.html"
+            },
+            {
+                id: 7,
+                name: "XMind思维导图",
+                desc: "思维导图、头脑风暴、项目规划工具",
+                category: "office",
+                icon: "fa fa-map-o",
+                size: "340MB",
+                update: "2026-06-30",
+                link: "#download"
+            },
+            {
+                id: 8,
+                name: "Blender 3D",
+                desc: "免费开源三维建模渲染动画软件",
+                category: "design",
+                icon: "fa fa-cube",
+                size: "1.1GB",
+                update: "2026-07-05",
+                link: "#download"
+            },
+            {
+                id: 9,
+                name: "剪映专业版",
+                desc: "电脑端短视频剪辑、字幕自动生成",
+                category: "media",
+                icon: "fa fa-film",
+                size: "420MB",
+                update: "2026-07-13",
+                link: "#download"
+            },
+            {
+                id: 10,
+                name: "Git客户端",
+                desc: "代码版本管理、仓库同步工具",
+                category: "dev",
+                icon: "fa fa-git",
+                size: "45MB",
+                update: "2026-05-20",
+                link: "#download"
+            },
+            {
+                id: 11,
+                name: "DiskGenius",
+
+
+                desc: "硬盘分区、数据恢复、磁盘检测工具",
+                category: "utility",
+                icon: "fa fa-hdd-o",
+                size: "68MB",
+                update: "2026-06-22",
+                link: "#download"
+            },
+            {
+                id: 12,
+                name: "模拟器合集",
+                desc: "手游模拟器、主机模拟器多合一",
+                category: "game",
+                icon: "fa fa-mobile",
+                size: "1.8GB",
+                update: "2026-07-02",
+                link: "#download"
+            }
+        ]
+
+        // 全局变量
+        let currentCat = "all";
+        const listBox = document.getElementById('softList');
+        const emptyTip = document.getElementById('emptyTip');
+        const searchInput = document.getElementById('searchInput');
+        const categoryBtns = document.querySelectorAll('.category-btn');
+
+        // 渲染软件卡片
+        function renderList() {
+            let filterData = softData;
+            // 分类筛选
+            if (currentCat !== 'all') {
+                filterData = filterData.filter(item => item.category === currentCat)
+            }
+            // 搜索过滤
+            const keyword = searchInput.value.trim().toLowerCase();
+            if (keyword) {
+                filterData = filterData.filter(item => 
+                    item.name.toLowerCase().includes(keyword) || item.desc.toLowerCase().includes(keyword)
+                )
+            }
+            // 空数据判断
+            if (filterData.length === 0) {
+                listBox.innerHTML = '';
+                emptyTip.classList.remove('hidden');
+                return;
+            } else {
+                emptyTip.classList.add('hidden');
+            }
+            // 生成HTML
+            let html = '';
+            filterData.forEach(item => {
+                html += `
+                <a href="${item.link}" class="block bg-white rounded-xl p-5 card-shadow hover:shadow-lg transition-all group cursor-pointer">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary text-xl">
+                            <i class="fa ${item.icon}"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg group-hover:text-primary transition-colors">${item.name}</h3>
+                            <p class="text-gray-500 text-sm mt-1 line-clamp-2">${item.desc}</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 flex items-center justify-between text-xs text-gray-400">
+                       
+                        <span>更新：${item.update}</span>
+                    </div>
+                    <div class="block w-full mt-4 py-2 text-center rounded-lg bg-primary/10 text-primary font-medium hover:bg-primary hover:text-white transition-all">
+                        <i class="fa fa-download mr-1"></i>查看详情
+                    </div>
+                </a>
+                `
+            })
+            listBox.innerHTML = html;
+        }
+
+        // 分类切换事件
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // 重置按钮样式
+                categoryBtns.forEach(b => {
+                    b.classList.remove('nav-active');
+                    b.classList.add('bg-white', 'border', 'border-gray-200');
+                })
+                btn.classList.add('nav-active');
+                btn.classList.remove('bg-white', 'border', 'border-gray-200');
+                currentCat = btn.dataset.type;
+                renderList();
+            })
+        })
+
+        // 搜索输入监听
+        searchInput.addEventListener('input', renderList);
+
+        // 页面初始化渲染
+        window.onload = renderList;
+    </script>
+</body>
+</html>
