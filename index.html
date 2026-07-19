@@ -56,12 +56,18 @@
         <section class="mb-8 overflow-x-auto scroll-hide">
             <div id="categoryNav" class="flex gap-2 min-w-max pb-2">
                 <button data-type="all" class="category-btn nav-active px-4 py-2 rounded-lg transition-all">全部软件</button>
-                <button data-type="office" class="category-btn px-4 py-2 rounded-lg bg-white border border-gray-200 hover:bg-gray-100 transition-all">办公工具</button>
-                <button data-type="design" class="category-btn px-4 py-2 rounded-lg bg-white border border-gray-200 hover:bg-gray-100 transition-all">设计绘图</button>
-                <button data-type="media" class="category-btn px-4 py-2 rounded-lg bg-white border border-gray-200 hover:bg-gray-100 transition-all">影音媒体</button>
+                <button data-type="办公软件" class="category-btn px-4 py-2 rounded-lg bg-white border border-gray-200 hover:bg-gray-100 transition-all">办公工具</button>
+                <button data-type="图像处理" class="category-btn px-4 py-2 rounded-lg bg-white border border-gray-200 hover:bg-gray-100 transition-all">图像处理</button>
+                <button data-type="media" class="category-btn px-4 py-2 rounded-lg bg-white border border-gray-200 hover:bg-gray-100 transition-all">音频动画</button>
+                <button data-type="video" class="category-btn px-4 py-2 rounded-lg bg-white border border-gray-200 hover:bg-gray-100 transition-all">视频剪辑</button>
+                <button data-type="cad" class="category-btn px-4 py-2 rounded-lg bg-white border border-gray-200 hover:bg-gray-100 transition-all">CAD设计</button>
+                <button data-type="3d" class="category-btn px-4 py-2 rounded-lg bg-white border border-gray-200 hover:bg-gray-100 transition-all">3D设计</button>
+                <button data-type="mechanical" class="category-btn px-4 py-2 rounded-lg bg-white border border-gray-200 hover:bg-gray-100 transition-all">机械设计</button>
+                <button data-type="electronics" class="category-btn px-4 py-2 rounded-lg bg-white border border-gray-200 hover:bg-gray-100 transition-all">电子电路</button>
+                <button data-type="simulation" class="category-btn px-4 py-2 rounded-lg bg-white border border-gray-200 hover:bg-gray-100 transition-all">仿真模拟</button>
+                <button data-type="理科工具" class="category-btn px-4 py-2 rounded-lg bg-white border border-gray-200 hover:bg-gray-100 transition-all">理科工具</button>
                 <button data-type="dev" class="category-btn px-4 py-2 rounded-lg bg-white border border-gray-200 hover:bg-gray-100 transition-all">开发编程</button>
                 <button data-type="utility" class="category-btn px-4 py-2 rounded-lg bg-white border border-gray-200 hover:bg-gray-100 transition-all">系统工具</button>
-                <button data-type="game" class="category-btn px-4 py-2 rounded-lg bg-white border border-gray-200 hover:bg-gray-100 transition-all">游戏工具</button>
             </div>
         </section>
 
@@ -105,8 +111,8 @@
                 id: 1,
                 name: "Microsoft Office",
                 desc: "办公套件，文字表格PPT集合一体",
-                category: "office",
-                icon: "fa fa-file-text-o",
+                category: "办公软件",
+                icon: "fa fa-building-o",
                 update: "2026-07-16",
                 link: "tutorials/office.html"
             },
@@ -114,113 +120,183 @@
                 id: 2,
                 name: "Photoshop 2026",
                 desc: "专业图像处理、平面设计修图软件",
-                category: "design",
+                category: "图像处理",
                 icon: "fa fa-picture-o",
                 update: "2026-07-17",
                 link: "tutorials/ps.html"
             },
             {
                 id: 3,
-                name: "PotPlayer",
-                desc: "轻量本地视频播放器，支持全格式解码",
-                category: "media",
-                icon: "fa fa-play-circle",
-                size: "32MB",
-                update: "2026-07-01",
-                link: "#download"
+                name: "Visio",
+                desc: "流程图、示意图、平面图的专业工具",
+                category: "办公软件",
+                icon: "fa fa-sitemap",
+                update: "2026-07-19",
+                link: "tutorials/visio.html"
             },
             {
-                id: 4,
-                name: "VS Code",
-                desc: "轻量级代码编辑器，支持全编程语言",
-                category: "dev",
-                icon: "fa fa-code",
-                size: "128MB",
-                update: "2026-07-12",
-                link: "#download"
+               id: 4,
+                name: "Acrobat",
+                desc: "PDF文档编辑、转换、压缩工具",
+                category: "办公软件",
+                icon: "fa fa-file-pdf-o",
+                update: "2026-07-19",
+                link: "tutorials/Acrobat.html"
             },
             {
                 id: 5,
-                name: "CCleaner",
-                desc: "系统垃圾清理、注册表优化工具",
-                category: "utility",
-                icon: "fa fa-trash-o",
-                size: "15MB",
-                update: "2026-06-15",
-                link: "#download"
-            },
-            {
-                id: 6,
-                name: "WPS Office",
-                desc: "全平台免费办公套件，文字表格PPT一体",
-                category: "office",
-                icon: "fa fa-file-text-o",
-                size: "186MB",
-                update: "2026-07-10",
-                link: "tutorials/wps.html"
-            },
-            {
-                id: 7,
                 name: "XMind思维导图",
                 desc: "思维导图、头脑风暴、项目规划工具",
-                category: "office",
+                category: "bgrj",
                 icon: "fa fa-map-o",
                 size: "340MB",
                 update: "2026-06-30",
                 link: "#download"
+            },       
+            {
+                id: 6,
+                name: "Illustrator",
+                desc: "专业矢量图形绘制、图标设计工具",
+                category: "图像处理",
+                icon: "fa fa-paint-brush",
+                update: "2026-07-15",
+                link: "#download"
+            },
+            {
+                id: 7,
+                name: "InDesign",
+                desc: "专业排版设计、画册海报制作工具",
+                category: "图像处理",
+                icon: "fa fa-book",
+                update: "2026-07-14",
+                link: "#download"
             },
             {
                 id: 8,
-                name: "Blender 3D",
-                desc: "免费开源三维建模渲染动画软件",
-                category: "design",
-                icon: "fa fa-cube",
-                size: "1.1GB",
-                update: "2026-07-05",
+                name: "Premiere Pro",
+                desc: "专业视频剪辑、影视后期制作软件",
+                category: "video",
+                icon: "fa fa-film",
+                update: "2026-07-16",
                 link: "#download"
             },
             {
                 id: 9,
-                name: "剪映专业版",
-                desc: "电脑端短视频剪辑、字幕自动生成",
-                category: "media",
-                icon: "fa fa-film",
-                size: "420MB",
+                name: "After Effects",
+                desc: "视频特效制作、动态图形设计工具",
+                category: "video",
+                icon: "fa fa-magic",
                 update: "2026-07-13",
                 link: "#download"
             },
             {
                 id: 10,
-                name: "Git客户端",
-                desc: "代码版本管理、仓库同步工具",
-                category: "dev",
-                icon: "fa fa-git",
-                size: "45MB",
-                update: "2026-05-20",
-                link: "#download"
+                name: "AutoCAD",
+                desc: "专业二维绘图、建筑工程设计软件",
+                category: "cad",
+                icon: "fa fa-cube",
+                update: "2026-07-18",
+                link: "tutorials/AutoCAD.html"
             },
             {
                 id: 11,
-                name: "DiskGenius",
-
-
-                desc: "硬盘分区、数据恢复、磁盘检测工具",
-                category: "utility",
-                icon: "fa fa-hdd-o",
-                size: "68MB",
-                update: "2026-06-22",
+                name: "SolidWorks",
+                desc: "机械设计、工程制图三维CAD软件",
+                category: "cad",
+                icon: "fa fa-cubes",
+                update: "2026-07-17",
                 link: "#download"
             },
             {
                 id: 12,
-                name: "模拟器合集",
-                desc: "手游模拟器、主机模拟器多合一",
-                category: "game",
-                icon: "fa fa-mobile",
-                size: "1.8GB",
-                update: "2026-07-02",
+                name: "CATIA",
+                desc: "航空航天、汽车工业专业CAD工具",
+                category: "cad",
+                icon: "fa fa-industry",
+                update: "2026-07-15",
                 link: "#download"
-            }
+            },
+            {
+                id: 13,
+                name: "3ds Max",
+                desc: "三维建模、动画渲染专业软件",
+                category: "3d",
+                icon: "fa fa-object-group",
+                update: "2026-07-16",
+                link: "#download"
+            },
+            {
+                id: 14,
+                name: "Cinema 4D",
+                desc: "影视特效、产品渲染三维软件",
+                category: "3d",
+                icon: "fa fa-film",
+                update: "2026-07-12",
+                link: "#download"
+            },
+            {
+                id: 15,
+                name: "SketchUp",
+                desc: "建筑设计、室内设计三维建模软件",
+                category: "3d",
+                icon: "fa fa-cubes",
+                update: "2026-07-19",
+                link: "tutorials/SketchUp.html"
+            },
+            {
+                id: 16,
+                name: "Creo",
+                desc: "专业机械设计、产品开发CAD软件",
+                category: "mechanical",
+                icon: "fa fa-cog",
+                update: "2026-07-18",
+                link: "#download"
+            },
+            {
+                id: 17,
+                name: "Inventor",
+                desc: "三维机械设计、工程仿真软件",
+                category: "mechanical",
+                icon: "fa fa-wrench",
+                update: "2026-07-16",
+                link: "#download"
+            },
+            {
+                id: 18,
+                name: "Altium Designer",
+                desc: "专业PCB设计、电子电路仿真软件",
+                category: "electronics",
+                icon: "fa fa-circuit-board",
+                update: "2026-07-15",
+                link: "#download"
+            },
+            {
+                id: 19,
+                name: "ANSYS",
+                desc: "有限元分析、工程仿真软件",
+                category: "simulation",
+                icon: "fa fa-flask",
+                update: "2026-07-14",
+                link: "#download"
+            },
+            {
+                id: 20,
+                name: "MATLAB",
+                desc: "数学计算、数据可视化、仿真编程平台",
+                category: "simulation",
+                icon: "fa fa-bar-chart",
+                update: "2026-07-13",
+                link: "#download"
+            },
+            {
+                id: 21,
+                name: "Origin",
+                desc: "科学数据分析、图表绘制工具",
+                category: "science",
+                icon: "fa fa-line-chart",
+                update: "2026-07-12",
+                link: "#download"
+            },
         ]
 
         // 全局变量
